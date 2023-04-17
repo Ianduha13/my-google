@@ -3,6 +3,7 @@ import { AiOutlineSearch } from "react-icons/ai"
 import { BsFillMicFill } from "react-icons/bs"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 export default function HomeSearch() {
 	const router = useRouter()
@@ -47,8 +48,10 @@ export default function HomeSearch() {
 					className='btn flex items-center justify-center disabled:opacity-80'
 				>
 					{randomSearchLoading ? (
-						<img
-							className='h-6 text-center'
+						<Image
+							width={24}
+							height={24}
+							className=' text-center'
 							src='spinner.svg'
 							alt='Loading...'
 						/>
