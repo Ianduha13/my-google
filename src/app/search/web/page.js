@@ -1,5 +1,7 @@
 import Link from "next/link"
-export default async function ImageSearchPage({ searchParams }) {
+import WebSearchResult from "@/components/WebSearchResult"
+
+export default async function WebSearchPage({ searchParams }) {
 	const response = await fetch(
 		`https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}}`
 	)
@@ -22,10 +24,5 @@ export default async function ImageSearchPage({ searchParams }) {
 			</div>
 		)
 	}
-	return (
-		<>
-			{results &&
-				results.map((result) => <h3 key={result.id}>{result.title}</h3>)}
-		</>
-	)
+	return <>{results && <WebSearchResult results={data} />}</>
 }
